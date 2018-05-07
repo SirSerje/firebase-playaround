@@ -1,39 +1,38 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>fuc</title>
-    </head>
-    <body>
-        <h1 id="big0ne"></h1>
-        <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
-        <script>
-            // Initialize Firebase
-            var config = {
-                apiKey           : "AIzaSyB5G1yYo0kVZ8GI-ID266o3l7fcoFjKcRc",
-                authDomain       : "test-learn-ff.firebaseapp.com",
-                databaseURL      : "https://test-learn-ff.firebaseio.com",
-                projectId        : "test-learn-ff",
-                storageBucket    : "test-learn-ff.appspot.com",
-                messagingSenderId: "558468890196",
-            };
-            //init part
-            firebase.initializeApp(config);
-            //Login
-            console.log('try to login, default log pass for me')
-            firebase.auth().signInWithEmailAndPassword('a1@g.com', '123456').catch(function(error) {
-                // Handle Errors here.
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                // ...
-                console.log(error)
-            });
-            //get stuff from db
+<head>
+    <meta charset="utf-8">
+    <title>fuc</title>
+</head>
+<body>
+<h1 id="big0ne"></h1>
+<script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+<script>
+
+    var config = {
+        apiKey           : "AIzaSyB5G1yYo0kVZ8GI-ID266o3l7fcoFjKcRc",
+        authDomain       : "test-learn-ff.firebaseapp.com",
+        databaseURL      : "https://test-learn-ff.firebaseio.com",
+        projectId        : "test-learn-ff",
+        storageBucket    : "test-learn-ff.appspot.com",
+        messagingSenderId: "558468890196",
+    };
+    firebase.initializeApp(config);
+
+    const token = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJzb21lLXVpZCIsImlhdCI6MTUyNTcyOTc3NywiZXhwIjoxNTI1NzMzMzc3LCJhdWQiOiJodHRwczovL2lkZW50aXR5dG9vbGtpdC5nb29nbGVhcGlzLmNvbS9nb29nbGUuaWRlbnRpdHkuaWRlbnRpdHl0b29sa2l0LnYxLklkZW50aXR5VG9vbGtpdCIsImlzcyI6ImZpcmViYXNlLWFkbWluc2RrLWdlcXJ1QHRlc3QtbGVhcm4tZmYuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJzdWIiOiJmaXJlYmFzZS1hZG1pbnNkay1nZXFydUB0ZXN0LWxlYXJuLWZmLmlhbS5nc2VydmljZWFjY291bnQuY29tIn0.lPViXrThyS9_7SO1FEZxr1KoQAt2RDvTRMncBhRdL0bhmHMNzUQIRYeIe4X1ADyQKyVBSg8QjpgV5izvkFfUSk4-aVZ6XsAydgnQobqwEh11v4gv--smfgIFeakhbWh17M4j-SUoPfA-yv6gn5WMrvcUiShJm0WqyJGMVhyrBKEJJxHnw_mMyNcRH-bOL8OjFYTo4MbOnHBNw5zpnU3B--3JuWrJUqvtN5szM015JFzySHMFKEnyN1Yeey4jL7pt4EL9__x2ZHPX-eoWrIr0EHLu44pYiZ9mewBYYT649FOHK6XXxAv-nDy4R4pp_Bve3DPMgs8txMmEIwtuWoY3Ug';
+
+    firebase.auth().signInWithCustomToken(token)
+        .then(function (success) {
+            console.log('take data from db')
             var big0ne = document.getElementById(["big0ne"]);
             var dbRef = firebase.database().ref().child("object-key");
             dbRef.on("value", (function (snap) {
                 return big0ne.innerText = snap.val();
             }));
-        </script>
-    </body>
+        })
+        .catch(function (error) {
+        });
+
+</script>
+</body>
 </html>
