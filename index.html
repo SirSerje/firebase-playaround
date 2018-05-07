@@ -2,10 +2,10 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>fuc</title>
+    <title>firebase-playaround</title>
 </head>
 <body>
-<h1 id="big0ne"></h1>
+<h1 id="placeholder"></h1>
 <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
 <script>
 
@@ -24,10 +24,10 @@
     firebase.auth().signInWithCustomToken(token)
         .then(function (success) {
             console.log('take data from db')
-            var big0ne = document.getElementById(["big0ne"]);
+            var placeholder = document.getElementById(["placeholder"]);
             var dbRef = firebase.database().ref().child("object-key");
             dbRef.on("value", (function (snap) {
-                return big0ne.innerText = snap.val();
+                return placeholder.innerText = snap.val();
             }));
         })
         .catch(function (error) {
