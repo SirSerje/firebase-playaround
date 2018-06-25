@@ -1,4 +1,4 @@
-#Firebase Playaround
+# Firebase Playaround
 Small demo to discover Google Firebase API
 
 **How to install**:
