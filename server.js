@@ -22,12 +22,26 @@ app.get("/new", function (req, res) {
 
 });
 
-
-app.listen(3000, function () {
-    console.log("example on 3000!");
+//FIXME: this part of code should fix CORS issues I have now
+app.all('/', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next();
 });
 
+// app.get('/', function(req, res, next) {
+//     // Handle the get for this route
+// });
+//
+// app.post('/', function(req, res, next) {
+//     // Handle the post for this route
+// });
 
-function test() {
-    console.log('asd')
-}
+app.listen(3000, function () {
+    console.log("server is running on http://localhost:3000");
+});
+
+//
+// function test() {
+//     console.log('asd')
+// }
