@@ -1,11 +1,12 @@
-#Firebase Playaround
+# Firebase Playaround
 Small demo to discover Google Firebase API
 
-###How to install:
-1) Install all dependencies `npm i`
-2) Type `npm run start` in console to run nodemon local server
-3) Check webpage `http://localhost:3000/new` and copy token into clipboard
-4) Paste code into `const token = ...` in `index.html`
-5) Open `index.html` in browser and discover some little magic
+**How to install**:
+1) clone repo
+2) install all dependencies `npm i`
+3) `npm run start` (or run `npm run start-server` and `npm run start-client` if you want to run services separately)
 
-FYI: I know, better approach is direct request from webpage to localhost server. I'll fix it, or propose PR to this repo.
+
+Last command should open new tab in your browser with playground. Enjoy :) . Leave any comments to commit / bug and I'll answer or fix them.
+
+**FYI**: there is a lot of issues, kind of: GET request without providing any security, no logging, etc. But this is only demo, how to use custom token for signin into firebase. If you want to see here more consistant example, text me, please.
